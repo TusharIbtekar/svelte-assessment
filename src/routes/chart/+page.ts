@@ -1,9 +1,9 @@
+import type { Country } from '$lib/types/Country.js';
+
 export async function load({ params }) {
-	// const res = await
 	const res = await fetch('https://restcountries.com/v3.1/all');
 	const data = await res.json();
-	console.log(data);
-	const countries = data.map((country: any) => {
+	const countries: Country[] = data.map((country: any) => {
 		return {
 			flag: { svg: country.flags.svg, alt: country.flags.alt, png: country.flags.png },
 			name: country.name.common,
@@ -14,6 +14,5 @@ export async function load({ params }) {
 			languages: country.languages ?? {}
 		};
 	});
-	console.log(countries);
 	return { countries };
 }
