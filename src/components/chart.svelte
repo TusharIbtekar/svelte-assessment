@@ -2,41 +2,64 @@
 	import { browser } from '$app/environment';
 	import { Chart, registerables } from 'chart.js';
 	import { onMount } from 'svelte';
+	import { countries } from '$lib/stores/country';
 
 	Chart.register(...registerables);
 
-	let barChartElement: HTMLCanvasElement;
+	let polarChartElement: HTMLCanvasElement;
+
+	function generateUniqueColors(numColors: number): string[] {
+		const colors = new Set<string>();
+		while (colors.size < numColors) {
+			colors.add(
+				`rgb(${Array.from({ length: 3 }, () => Math.floor(Math.random() * 256)).join(',')})`
+			);
+		}
+		return Array.from(colors);
+	}
+
+	const mostPopulatedCountries = $countries
+		.sort((a, b) => {
+			return b.population - a.population;
+		})
+		.slice(0, 10);
 
 	const data = {
-		labels: ['Red', 'Green', 'Yellow', 'Grey', 'Blue'],
+		labels: mostPopulatedCountries.map((country) => country.name),
 		datasets: [
 			{
-				label: 'My First Dataset',
-				data: [11, 16, 7, 3, 14],
-				backgroundColor: [
-					'rgb(255, 99, 132)',
-					'rgb(75, 192, 192)',
-					'rgb(255, 205, 86)',
-					'rgb(201, 203, 207)',
-					'rgb(54, 162, 235)'
-				]
+				label: 'Population',
+				data: mostPopulatedCountries.map((country) => country.population),
+				backgroundColor: generateUniqueColors(10)
 			}
 		]
 	};
 	onMount(() => {
 		if (browser) {
-			new Chart(barChartElement, {
+			new Chart(polarChartElement, {
 				type: 'polarArea',
 				data: data,
-				options: {}
+				options: {
+					plugins: {
+						legend: {
+							position: 'bottom',
+							labels: {}
+						}
+					},
+					layout: {
+						padding: 20
+					}
+				}
 			});
 		}
 	});
 </script>
 
-<div class="col-span-1">
-	<h1>State of JS 2021 Backend Framework Satisfaction</h1>
-	<section>
-		<canvas bind:this={barChartElement} />
-	</section>
+<div class="col-span-1 px-8">
+	<div class="border-2 rounded-lg border-gray-400 bg-white">
+		<h1 class="font-semibold pl-4 border-b-2 border-gray-400 py-2">Countries</h1>
+		<section>
+			<canvas bind:this={polarChartElement} />
+		</section>
+	</div>
 </div>

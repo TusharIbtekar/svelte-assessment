@@ -8,7 +8,7 @@
 	countries.set(data.countries);
 </script>
 
-<div class="grid grid-cols-3">
+<div class="grid grid-cols-3 pt-16 px-8 bg-slate-200">
 	<Table />
 	<Chart />
 </div>

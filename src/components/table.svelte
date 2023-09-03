@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { countries } from '$lib/stores/country';
-	import type { Country } from '$lib/types/Country';
+	import type { Country } from '$lib/types/country';
 
 	const showCurrencies = (country: Country) => {
 		return Object.keys(country.currencies).join(', ');
@@ -20,9 +20,9 @@
 	};
 </script>
 
-<div class="px-4 sm:px-6 lg:px-8 col-span-2">
-	<div class="-mx-4 mt-8 sm:-mx-0 border-2 rounded-md border-gray-400">
-		<table class="min-w-full divide-y divide-gray-300">
+<div class="px-8 col-span-2">
+	<div class="border-2 rounded-lg border-gray-400">
+		<table class="min-w-full divide-y divide-gray-300 bg-white">
 			<thead>
 				<tr>
 					<th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900">
@@ -54,7 +54,7 @@
 					</th>
 				</tr>
 			</thead>
-			<tbody class="divide-y divide-gray-200 bg-white">
+			<tbody class="divide-y divide-gray-200">
 				{#each $countries as country}
 					<tr>
 						<!-- <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0"> -->
