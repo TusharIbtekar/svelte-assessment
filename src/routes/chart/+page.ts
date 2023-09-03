@@ -1,4 +1,4 @@
-import type { Country } from '$lib/types/Country.js';
+import type { Country } from '$lib/types/country.js';
 
 export async function load({ params }) {
 	const res = await fetch('https://restcountries.com/v3.1/all');
