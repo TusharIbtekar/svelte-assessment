@@ -16,6 +16,9 @@
 		const vectorLayer = new VectorLayer({
 			source: vectorSource,
 			style: new Style({
+				stroke: new Stroke({
+					color: 'rgba(0, 106, 78, 0.75)' // #006a4e with 0.75 opacity
+				}),
 				fill: new Fill({
 					color: 'rgba(0, 106, 78, 0.75)' // #006a4e with 0.75 opacity
 				})
@@ -38,13 +41,4 @@
 	});
 </script>
 
-<div class="h-screen">
-	<div id="map" class="map" />
-</div>
-
-<style>
-	.map {
-		width: 100%;
-		height: 100%;
-	}
-</style>
+<div id="map" class="h-screen" />

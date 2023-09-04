@@ -43,7 +43,11 @@
 					plugins: {
 						legend: {
 							position: 'bottom',
-							labels: {}
+							labels: {
+								usePointStyle: true,
+								pointStyle: 'circle'
+							},
+							fullSize: false
 						}
 					},
 					layout: {
