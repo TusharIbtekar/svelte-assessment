@@ -2,7 +2,7 @@
 	import { browser } from '$app/environment';
 	import { Chart, registerables } from 'chart.js';
 	import { onMount } from 'svelte';
-	import { countries } from '$lib/stores/country';
+	import { countryDataStore } from '$lib/stores/country';
 
 	Chart.register(...registerables);
 
@@ -18,7 +18,7 @@
 		return Array.from(colors);
 	}
 
-	const mostPopulatedCountries = $countries
+	const mostPopulatedCountries = $countryDataStore
 		.sort((a, b) => {
 			return b.population - a.population;
 		})

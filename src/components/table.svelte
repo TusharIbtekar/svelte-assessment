@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { countries } from '$lib/stores/country';
+	import { countryDataStore } from '$lib/stores/country';
 	import type { Country } from '$lib/types/country';
 
 	const showCurrencies = (country: Country) => {
@@ -55,7 +55,7 @@
 				</tr>
 			</thead>
 			<tbody class="divide-y divide-gray-200">
-				{#each $countries as country}
+				{#each $countryDataStore as country}
 					<tr>
 						<!-- <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0"> -->
 						<td class="whitespace-nowrap py-4 pl-4 pr-3">
