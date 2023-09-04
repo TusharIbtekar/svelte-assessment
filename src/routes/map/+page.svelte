@@ -2,45 +2,22 @@
 	import GeoJSON from 'ol/format/GeoJSON.js';
 	import Map from 'ol/Map.js';
 	import View from 'ol/View.js';
-	import { Stroke, Style } from 'ol/style.js';
+	import { Fill, Stroke, Style } from 'ol/style.js';
 	import { OSM, Vector as VectorSource } from 'ol/source.js';
 	import { Tile as TileLayer, Vector as VectorLayer } from 'ol/layer.js';
 	import { onMount } from 'svelte';
 
 	onMount(() => {
-		const geojsonObject = {
-			type: 'FeatureCollection',
-			features: [
-				{
-					type: 'Feature',
-					geometry: {
-						type: 'Point',
-						coordinates: [0, 0]
-					}
-				},
-				{
-					type: 'Feature',
-					geometry: {
-						type: 'LineString',
-						coordinates: [
-							[4e6, -2e6],
-							[8e6, 2e6]
-						]
-					}
-				}
-			]
-		};
-
 		const vectorSource = new VectorSource({
-			features: new GeoJSON().readFeatures(geojsonObject)
+			url: 'countries.geojson',
+			format: new GeoJSON()
 		});
 
 		const vectorLayer = new VectorLayer({
 			source: vectorSource,
 			style: new Style({
-				stroke: new Stroke({
-					color: 'green',
-					width: 1
+				fill: new Fill({
+					color: 'rgba(0, 106, 78, 0.75)' // #006a4e with 0.75 opacity
 				})
 			})
 		});
