@@ -4,7 +4,6 @@
 	import Chart from '$components/chart.svelte';
 
 	export let data;
-	// console.log(data.countries);
 	countries.set(data.countries);
 </script>
 
