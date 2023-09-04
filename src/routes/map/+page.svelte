@@ -6,6 +6,7 @@
 	import { OSM, Vector as VectorSource } from 'ol/source.js';
 	import { Tile as TileLayer, Vector as VectorLayer } from 'ol/layer.js';
 	import { onMount } from 'svelte';
+	import 'ol/ol.css';
 
 	onMount(() => {
 		const vectorSource = new VectorSource({
