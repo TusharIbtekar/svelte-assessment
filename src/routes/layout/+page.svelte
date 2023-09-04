@@ -2,11 +2,19 @@
 	<title>Layout</title>
 </svelte:head>
 
-<main class="md:grid md:grid-rows-6 md:grid-cols-12 h-screen w-full">
+<div class="md:grid md:grid-rows-6 md:grid-cols-12 h-screen w-full">
 	<!-- For smaller devices (6x4 grid) -->
 	<div class="md:hidden grid grid-rows-6 grid-cols-4 w-full h-full">
-		<div class="col-span-4 row-span-3 bg-blue-400">3 x 4 (color: blue-400)</div>
 		<div class="col-span-4 row-span-3 bg-rose-100">3 x 4 (color: rose-100)</div>
+		<div class="col-span-4 row-span-3 bg-yellow-100 grid place-items-center">
+			<div class="square grid place-items-center">
+				<div class="circle grid place-items-center">
+					<div class="mountain1">
+						<div class="mountain2" />
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 	<div class="md:hidden grid grid-rows-6 grid-cols-4 w-full h-full">
 		<div class="col-span-4 row-span-3 bg-teal-400">3 x 4 (color: teal-400)</div>
@@ -14,7 +22,7 @@
 	</div>
 	<div class="md:hidden grid grid-rows-6 grid-cols-4 w-full h-full">
 		<div class="col-span-4 row-span-3 bg-cyan-400">3 x 4 (color: cyan-400)</div>
-		<div class="col-span-4 row-span-3 bg-yellow-100">3 x 4 (color: yellow-100)</div>
+		<div class="col-span-4 row-span-3 bg-blue-400">3 x 4 (color: blue-400)</div>
 	</div>
 	<div class="md:hidden grid grid-rows-6 grid-cols-4 col-span-4 row-span-3 w-full h-full">
 		<div class="col-span-4 row-span-3 bg-emerald-400">3 x 4 (color: emerald-400)</div>
@@ -41,7 +49,7 @@
 		</div>
 		<div class="row-span-4 col-span-2 bg-emerald-400">4 x 2 (color: emerald-400)</div>
 	</div>
-</main>
+</div>
 
 <style>
 	.square {
