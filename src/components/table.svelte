@@ -20,8 +20,8 @@
 	};
 </script>
 
-<div class="px-8 col-span-2">
-	<div class="border-2 rounded-lg border-gray-400">
+<div class="px-8 col-span-2 order-2 xl:order-none">
+	<div class="border-2 rounded-lg border-gray-400 overflow-hidden">
 		<table class="min-w-full divide-y divide-gray-300 bg-white">
 			<thead>
 				<tr>
